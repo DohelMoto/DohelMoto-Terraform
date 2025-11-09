@@ -12,3 +12,6 @@ variable "vpc-name" {
 
 variable "env" {
 }
+
+variable "cluster_name" {
+}
