@@ -3,11 +3,11 @@ output "azs" {
 }
 
 output "public_subnets" {
-  value = local.public_subnets
+  value = module.vpc.public_subnets
 }
 
 output "private_subnets" {
-  value = local.private_subnets
+  value = module.vpc.private_subnets
 }
 
 output "vpc_id" {

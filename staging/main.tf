@@ -1,3 +1,12 @@
+terraform {
+  backend "s3" {
+    bucket = "dohelmoto-state"
+    region = "us-east-1"
+    key = "terraform.tfstate"
+    dynamodb_table = "state-locking"
+  }
+}
+
 module "connection" {
   source = "../modules/network"
   region = var.region
