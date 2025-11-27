@@ -20,11 +20,16 @@ module "eks" {
 
   enable_cluster_creator_admin_permissions = true
 
-  compute_config = {
-    enabled    = true
-    node_pools = [var.node_pools]
+  eks_managed_node_groups = {
+    spot_small = {
+      instance_types = [var.instance_type]
+      capacity_type  = var.capacity_type
+      min_size     = var.min_size
+      desired_size = var.desired_size
+      max_size     = var.max_size
+      disk_size = var.disk_size
+    }
   }
-
   vpc_id     = var.vpc_id
   subnet_ids = var.subnet_ids
 

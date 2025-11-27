@@ -62,7 +62,8 @@ module "ingress_nginx" {
 
   set = [
     { name = "controller.service.type", value = "LoadBalancer" },
-    { name = "controller.ingressClassResource.default", value = "true" }
+    { name = "controller.ingressClassResource.default", value = "true" },
+    { name = "controller.service.annotations.service\\.beta\\.kubernetes\\.io/aws-load-balancer-scheme", value = "internet-facing" }
   ]
 
   depends_on = [aws_eks_addon.ebs_csi]
